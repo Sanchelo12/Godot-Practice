@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://dkpg8jhxpi7h1"]
+
+[ext_resource type="Script" uid="uid://cywvfkige8uhu" path="res://scripts/main.gd" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://cr2idif3wen48" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://d0t4qai22a2w6" path="res://scenes/coin.tscn" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://bjqu1y1kpkp32" path="res://scripts/game_manager.gd" id="4_jyhfs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_0wfyh"]
+sky_material = SubResource("ProceduralSkyMaterial_o5qli")
+
+[sub_resource type="Environment" id="Environment_sugp2"]
+background_mode = 2
+sky = SubResource("Sky_0wfyh")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main" type="Node3D" unique_id=224605642]
+script = ExtResource("1_jyhfs")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=244024249]
+environment = SubResource("Environment_sugp2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=692501424]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 111, 0)
+light_color = Color(1, 0.6745098, 0.7490196, 1)
+light_energy = 0.25
+shadow_enabled = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=2062027307]
+transform = Transform3D(-0.78294796, 0.60516065, 0.14412878, 0.14922808, -0.042215582, 0.9879012, 0.6039235, 0.79498327, -0.05725435, 12.44883, 54.547966, -57.773136)
+light_color = Color(1, 0.60784316, 0, 1)
+light_energy = 100.0
+spot_range = 89.0
+spot_angle = 38.341953
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=1524471193]
+transform = Transform3D(-0.78294796, 0.60516065, 0.1441288, 0.14922808, -0.042215582, 0.9879012, 0.6039235, 0.79498327, -0.05725435, -8.55117, 105.547966, -115.77313)
+light_color = Color(1, 0.60784316, 0, 1)
+light_energy = 100.0
+spot_range = 89.0
+spot_angle = 38.341953
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=854402517]
+transform = Transform3D(-0.78294796, 0.60516065, 0.1441288, 0.14922808, -0.042215582, 0.9879012, 0.6039235, 0.79498327, -0.057254355, 122.44883, 94.547966, 21.226868)
+light_color = Color(1, 0.60784316, 0, 1)
+light_energy = 100.0
+spot_range = 89.0
+spot_angle = 38.341953
+
+[node name="Player" parent="." unique_id=1480550273 instance=ExtResource("1_o5qli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.135223, 10.769743, 38.96982)
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=942040731]
+use_collision = true
+size = Vector3(256, 1, 256)
+
+[node name="Coin" parent="." unique_id=829302475 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8712616, 6.5, -51.62575)
+
+[node name="Coin2" parent="." unique_id=1517887367 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.87126, 61.5, 29.374249)
+
+[node name="Coin3" parent="." unique_id=950544130 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.128738, 61.5, -104.62575)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1988023935]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=743529220]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -116, 9, -102)
+size = Vector3(25, 19, 52)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=381427111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93, 22, -102)
+size = Vector3(25, 29, 52)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=298216766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 41, -102)
+size = Vector3(25, 29, 52)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=436781906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 41, -102)
+size = Vector3(25, 29, 52)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1658392781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 41, -102)
+size = Vector3(25, 29, 52)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=299343706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 87, 41, -102)
+size = Vector3(25, 29, 52)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=2012130800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 41, -43)
+size = Vector3(25, 29, 170)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1404935484]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1841288308]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=1314832446]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 222.0
+offset_right = 658.0
+offset_bottom = 327.0
+theme_override_font_sizes/font_size = 60
+text = "Victory"
+
+[node name="RestartButton" type="Button" parent="CanvasLayer/Control" unique_id=1169019073]
+layout_mode = 0
+offset_left = 405.0
+offset_top = 348.0
+offset_right = 553.0
+offset_bottom = 411.0
+theme_override_font_sizes/font_size = 40
+text = "Restart"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/Control" unique_id=1672654847]
+layout_mode = 0
+offset_left = 606.0
+offset_top = 348.0
+offset_right = 685.0
+offset_bottom = 411.0
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+
+[node name="GameManager" type="Node" parent="." unique_id=150111946]
+script = ExtResource("4_jyhfs")
+
+[node name="ScoreLabel" type="Label" parent="GameManager" unique_id=175483984]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 30
+text = "Score: "
