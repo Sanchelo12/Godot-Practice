@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dw2ha2nwmyt32"]
+
+[ext_resource type="PackedScene" uid="uid://cefen3oxxdaf5" path="res://models/Tentacles1.glb" id="1_5ad3m"]
+[ext_resource type="PackedScene" uid="uid://dbapml0pdc56x" path="res://scenes/marker.tscn" id="2_grxmd"]
+
+[node name="Tentacles" type="Node3D" unique_id=536299901]
+
+[node name="Tentacles1" parent="." unique_id=316584521 instance=ExtResource("1_5ad3m")]
+
+[node name="FABRIK3D" type="FABRIK3D" parent="Tentacles1/Armature_001/Skeleton3D" parent_id_path=PackedInt32Array(316584521, 1636277523) index="1" unique_id=1915028579]
+setting_count = 1
+settings/0/target_node = NodePath("../../Marker")
+settings/0/root_bone_name = "Bone.016"
+settings/0/root_bone = 17
+settings/0/end_bone_name = "Bone.022"
+settings/0/end_bone = 21
+settings/0/extend_end_bone = false
+settings/0/joint_count = 5
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = null
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = null
+settings/0/joints/2/rotation_axis = 3
+settings/0/joints/2/limitation = null
+settings/0/joints/3/rotation_axis = 3
+settings/0/joints/3/limitation = null
+settings/0/joints/4/rotation_axis = 3
+settings/0/joints/4/limitation = null
+
+[node name="FABRIK3D2" type="FABRIK3D" parent="Tentacles1/Armature_001/Skeleton3D" parent_id_path=PackedInt32Array(316584521, 1636277523) index="2" unique_id=969399230]
+max_iterations = 12
+deterministic = true
+setting_count = 2
+settings/0/target_node = NodePath("../../Marker3D2")
+settings/1/target_node = NodePath("../../Marker3D")
+settings/0/root_bone_name = "Bone"
+settings/0/root_bone = 0
+settings/0/end_bone_name = "Bone.002"
+settings/0/end_bone = 2
+settings/0/extend_end_bone = false
+settings/0/joint_count = 3
+settings/1/root_bone_name = "Bone"
+settings/1/root_bone = 0
+settings/1/end_bone_name = "Bone.004"
+settings/1/end_bone = 4
+settings/1/extend_end_bone = false
+settings/1/joint_count = 5
+settings/0/joints/0/rotation_axis = 3
+settings/0/joints/0/limitation = null
+settings/0/joints/1/rotation_axis = 3
+settings/0/joints/1/limitation = null
+settings/0/joints/2/rotation_axis = 3
+settings/0/joints/2/limitation = null
+settings/1/joints/0/rotation_axis = 3
+settings/1/joints/0/limitation = null
+settings/1/joints/1/rotation_axis = 3
+settings/1/joints/1/limitation = null
+settings/1/joints/2/rotation_axis = 3
+settings/1/joints/2/limitation = null
+settings/1/joints/3/rotation_axis = 3
+settings/1/joints/3/limitation = null
+settings/1/joints/4/rotation_axis = 3
+settings/1/joints/4/limitation = null
+
+[node name="Marker" parent="Tentacles1/Armature_001" parent_id_path=PackedInt32Array(316584521, 1456327237) index="1" unique_id=381060230 node_paths=PackedStringArray("skeleton") instance=ExtResource("2_grxmd")]
+transform = Transform3D(0, -1, -1.3435883e-07, -1, 0, 7.5497915e-08, -7.5497915e-08, 1.3435883e-07, -1, -9.984706, 1.6222231, -1.3435883e-07)
+skeleton = NodePath("../Skeleton3D")
+bone_name = "Bone.020"
+
+[node name="Marker3D" parent="Tentacles1/Armature_001" parent_id_path=PackedInt32Array(316584521, 1456327237) index="2" unique_id=181715845 node_paths=PackedStringArray("skeleton") instance=ExtResource("2_grxmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9694161, 4, -0.53338385)
+skeleton = NodePath("../Skeleton3D")
+bone_name = "Bone.004"
+
+[node name="Marker3D2" parent="Tentacles1/Armature_001" parent_id_path=PackedInt32Array(316584521, 1456327237) index="3" unique_id=1120798336 node_paths=PackedStringArray("skeleton") instance=ExtResource("2_grxmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0377984, 2, 1.4086796)
+skeleton = NodePath("../Skeleton3D")
+bone_name = "Bone.002"
+
+[editable path="Tentacles1"]

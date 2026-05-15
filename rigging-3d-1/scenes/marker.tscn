@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dbapml0pdc56x"]
+
+[ext_resource type="Script" uid="uid://wqkhpslq11xb" path="res://scripts/marker_global_3d.gd" id="1_hy4mp"]
+
+[node name="Marker3D" type="Marker3D" unique_id=181715845]
+script = ExtResource("1_hy4mp")

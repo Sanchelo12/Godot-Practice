@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bvvflslu76qfg"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1qq61"]
+radial_segments = 8
+rings = 4
+
+[node name="SoftBody3D" type="SoftBody3D" unique_id=1765641400]
+mesh = SubResource("SphereMesh_1qq61")
