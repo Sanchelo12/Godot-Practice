@@ -3,11 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://cefen3oxxdaf5" path="res://models/Tentacles1.glb" id="1_5ad3m"]
 [ext_resource type="PackedScene" uid="uid://dbapml0pdc56x" path="res://scenes/marker.tscn" id="2_grxmd"]
 
+[sub_resource type="Curve3D" id="Curve3D_grxmd"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.75593734, 0.82511234, 0, 0, 0, 0, 0, 0, 0, 0.7868668, 1.868974, 0, 0, 0, 0, 0, 0, 0, 0.8023313, 2.943765, 0, 0, 0, 0, 0, 0, 0, 0.75593734, 3.9644296, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
 [node name="Tentacles" type="Node3D" unique_id=536299901]
 
 [node name="Tentacles1" parent="." unique_id=316584521 instance=ExtResource("1_5ad3m")]
 
-[node name="FABRIK3D" type="FABRIK3D" parent="Tentacles1/Armature_001/Skeleton3D" parent_id_path=PackedInt32Array(316584521, 1636277523) index="1" unique_id=1915028579]
+[node name="FABRIK3D" type="FABRIK3D" parent="Tentacles1/Armature_001/Skeleton3D" parent_id_path=PackedInt32Array(316584521, 1840264003) index="1" unique_id=1915028579]
+active = false
 setting_count = 1
 settings/0/target_node = NodePath("../../Marker")
 settings/0/root_bone_name = "Bone.016"
@@ -27,7 +35,7 @@ settings/0/joints/3/limitation = null
 settings/0/joints/4/rotation_axis = 3
 settings/0/joints/4/limitation = null
 
-[node name="FABRIK3D2" type="FABRIK3D" parent="Tentacles1/Armature_001/Skeleton3D" parent_id_path=PackedInt32Array(316584521, 1636277523) index="2" unique_id=969399230]
+[node name="FABRIK3D2" type="FABRIK3D" parent="Tentacles1/Armature_001/Skeleton3D" parent_id_path=PackedInt32Array(316584521, 1840264003) index="2" unique_id=969399230]
 max_iterations = 12
 deterministic = true
 setting_count = 2
@@ -62,19 +70,51 @@ settings/1/joints/3/limitation = null
 settings/1/joints/4/rotation_axis = 3
 settings/1/joints/4/limitation = null
 
-[node name="Marker" parent="Tentacles1/Armature_001" parent_id_path=PackedInt32Array(316584521, 1456327237) index="1" unique_id=381060230 node_paths=PackedStringArray("skeleton") instance=ExtResource("2_grxmd")]
-transform = Transform3D(0, -1, -1.3435883e-07, -1, 0, 7.5497915e-08, -7.5497915e-08, 1.3435883e-07, -1, -9.984706, 1.6222231, -1.3435883e-07)
+[node name="SpringArm3D" type="SpringArm3D" parent="Tentacles1/Armature_001/Skeleton3D" parent_id_path=PackedInt32Array(316584521, 1840264003) index="3" unique_id=796257743]
+
+[node name="Marker3D" type="Marker3D" parent="Tentacles1/Armature_001/Skeleton3D/SpringArm3D" unique_id=1239177409]
+
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="Tentacles1/Armature_001/Skeleton3D" parent_id_path=PackedInt32Array(316584521, 1840264003) index="4" unique_id=866215602]
+target_node = NodePath("../../Marker")
+bone_name = "Bone.022"
+bone = 21
+forward_axis = 1
+
+[node name="SplineIK3D" type="SplineIK3D" parent="Tentacles1/Armature_001/Skeleton3D" parent_id_path=PackedInt32Array(316584521, 1840264003) index="5" unique_id=584034872]
+setting_count = 1
+settings/0/path_3d = NodePath("../../Path3D")
+settings/0/tilt_enabled = true
+settings/0/tilt_fade_in = 1
+settings/0/tilt_fade_out = 1
+settings/0/root_bone_name = "Bone.012"
+settings/0/root_bone = 13
+settings/0/end_bone_name = "Bone.015"
+settings/0/end_bone = 16
+settings/0/extend_end_bone = false
+settings/0/joint_count = 4
+
+[node name="Marker" parent="Tentacles1/Armature_001" parent_id_path=PackedInt32Array(316584521, 1461317038) index="1" unique_id=381060230 node_paths=PackedStringArray("skeleton") instance=ExtResource("2_grxmd")]
+transform = Transform3D(0, -1, -1.3435883e-07, -1, 0, 7.5497915e-08, -7.5497915e-08, 1.3435883e-07, -1, -9, 4.9729657, -1.3435883e-07)
 skeleton = NodePath("../Skeleton3D")
 bone_name = "Bone.020"
 
-[node name="Marker3D" parent="Tentacles1/Armature_001" parent_id_path=PackedInt32Array(316584521, 1456327237) index="2" unique_id=181715845 node_paths=PackedStringArray("skeleton") instance=ExtResource("2_grxmd")]
+[node name="Marker3D" parent="Tentacles1/Armature_001" parent_id_path=PackedInt32Array(316584521, 1461317038) index="2" unique_id=181715845 node_paths=PackedStringArray("skeleton") instance=ExtResource("2_grxmd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9694161, 4, -0.53338385)
 skeleton = NodePath("../Skeleton3D")
 bone_name = "Bone.004"
 
-[node name="Marker3D2" parent="Tentacles1/Armature_001" parent_id_path=PackedInt32Array(316584521, 1456327237) index="3" unique_id=1120798336 node_paths=PackedStringArray("skeleton") instance=ExtResource("2_grxmd")]
+[node name="Marker3D2" parent="Tentacles1/Armature_001" parent_id_path=PackedInt32Array(316584521, 1461317038) index="3" unique_id=1120798336 node_paths=PackedStringArray("skeleton") instance=ExtResource("2_grxmd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0377984, 2, 1.4086796)
 skeleton = NodePath("../Skeleton3D")
 bone_name = "Bone.002"
+
+[node name="MarkerSpline" parent="Tentacles1/Armature_001" parent_id_path=PackedInt32Array(316584521, 1461317038) index="4" unique_id=610651904 node_paths=PackedStringArray("skeleton") instance=ExtResource("2_grxmd")]
+transform = Transform3D(0.9999998, -2.9802322e-08, -1.0658142e-14, -2.9802322e-08, 0.9999999, -1.058791e-22, 1.0658141e-14, -7.802328e-30, 1, -2.0000002, 3.9999995, 5.0242954e-15)
+skeleton = NodePath("../Skeleton3D")
+bone_name = "Bone.015"
+
+[node name="Path3D" type="Path3D" parent="Tentacles1/Armature_001" parent_id_path=PackedInt32Array(316584521, 1461317038) index="5" unique_id=1840752266]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7681668, 1.1545103, 0)
+curve = SubResource("Curve3D_grxmd")
 
 [editable path="Tentacles1"]

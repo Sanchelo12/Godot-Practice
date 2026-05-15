@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://b2xiffdcjn2sl"]
+
+[ext_resource type="PackedScene" uid="uid://bvuowq163pyq" path="res://models/Stickman2.glb" id="1_1x1t8"]
+[ext_resource type="Script" uid="uid://chk3rys6wcxr2" path="res://scripts/stickman_2.gd" id="1_tb8gh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tb8gh"]
+radius = 2.0
+height = 12.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tb8gh"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n4xh0"]
+animation = &"Roll"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qmpww"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_egosj"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ja18y"]
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tb8gh"]
+advance_mode = 2
+advance_condition = &"roll"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n4xh0"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qmpww"]
+advance_mode = 2
+advance_condition = &"roll"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ecel5"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ecel5"]
+states/End/position = Vector2(884, 274)
+states/Idle/node = SubResource("AnimationNodeAnimation_tb8gh")
+states/Idle/position = Vector2(484, 274)
+states/Roll/node = SubResource("AnimationNodeAnimation_n4xh0")
+states/Roll/position = Vector2(592, 138)
+states/Run/node = SubResource("AnimationNodeAnimation_qmpww")
+states/Run/position = Vector2(718, 274)
+states/Start/position = Vector2(333, 274)
+transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_egosj"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_ja18y"), "Idle", "Roll", SubResource("AnimationNodeStateMachineTransition_tb8gh"), "Roll", "Idle", SubResource("AnimationNodeStateMachineTransition_n4xh0"), "Run", "Roll", SubResource("AnimationNodeStateMachineTransition_qmpww"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ecel5")]
+
+[node name="Stickman2" type="CharacterBody3D" unique_id=1650231088]
+script = ExtResource("1_tb8gh")
+
+[node name="Stickman2" parent="." unique_id=1543639056 instance=ExtResource("1_1x1t8")]
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Stickman2/Armature_003/Skeleton3D" parent_id_path=PackedInt32Array(1543639056, 1735705636) index="1" unique_id=2051954999]
+transform = Transform3D(0.43126985, 0.7917249, 0.43264022, 0.43263996, -0.60227513, 0.6708849, 0.7917254, -0.102155134, -0.6022751, 2.7112663, 8.303249, 0.20000029)
+bone_name = "Arm.03.R"
+bone_idx = 18
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1212415183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.13035, 0)
+shape = SubResource("CapsuleShape3D_tb8gh")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1657557520]
+root_node = NodePath("../Stickman2")
+tree_root = SubResource("AnimationNodeStateMachine_ecel5")
+anim_player = NodePath("../Stickman2/AnimationPlayer")
+parameters/conditions/idle = false
+parameters/conditions/is_moving = false
+parameters/conditions/roll = false
+
+[editable path="Stickman2"]

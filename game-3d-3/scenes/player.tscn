@@ -20,7 +20,6 @@ blend_point_1/pos = 1.0
 min_space = 0.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qlg0r"]
-graph_offset = Vector2(-17.61728, -13.723305)
 nodes/output/position = Vector2(620, 160)
 nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_dqkch")
 nodes/BlendSpace1D/position = Vector2(240, 80)
@@ -31,18 +30,18 @@ script = ExtResource("1_3vyb7")
 
 [node name="Stickman" parent="." unique_id=672098798 instance=ExtResource("2_g2els")]
 
-[node name="Skeleton3D" parent="Stickman/Armature" parent_id_path=PackedInt32Array(672098798, 1916333088) index="0" unique_id=1774348743]
+[node name="Skeleton3D" parent="Stickman/Armature" parent_id_path=PackedInt32Array(672098798, 1001828556) index="0" unique_id=2122673594]
 bones/3/rotation = Quaternion(-0.12840426, -0.021538727, 0.026730148, 0.9911276)
-bones/6/rotation = Quaternion(-0.047472905, 4.3906972e-08, 7.684164e-09, 0.9988726)
-bones/8/rotation = Quaternion(-0.34295368, 0.4943691, 0.5295556, 0.59795725)
-bones/9/rotation = Quaternion(-0.28338614, 0.29089472, -0.04203432, 0.9128558)
-bones/10/rotation = Quaternion(-0.09740866, 0.14279756, -0.1416409, 0.9747094)
-bones/13/position = Vector3(2.394097e-08, 0.42394924, 0.0674448)
-bones/13/rotation = Quaternion(0.40481037, 7.437462e-09, -1.7896152e-08, 0.9144007)
-bones/13/scale = Vector3(1, 1.0000001, 1.0000001)
-bones/15/rotation = Quaternion(-0.34295374, -0.49436915, -0.52955544, 0.59795725)
-bones/16/rotation = Quaternion(-0.28338608, -0.29089463, 0.042034347, 0.9128559)
-bones/17/rotation = Quaternion(-0.09740861, -0.14279754, 0.14164087, 0.97470933)
+bones/6/rotation = Quaternion(-0.081155695, 4.359178e-08, 6.399755e-09, 0.9967014)
+bones/8/rotation = Quaternion(-0.36194292, 0.47960714, 0.547461, 0.5824611)
+bones/9/rotation = Quaternion(-0.34640855, 0.2899188, -0.05162569, 0.89066446)
+bones/10/rotation = Quaternion(-0.15338933, 0.1420812, -0.17706038, 0.96173507)
+bones/13/position = Vector3(3.6117171e-09, 0.56046724, -0.11260271)
+bones/13/rotation = Quaternion(0.3830197, 7.0520563e-09, -1.5866195e-08, 0.9237402)
+bones/13/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(-0.36194298, -0.47960714, -0.547461, 0.58246106)
+bones/16/rotation = Quaternion(-0.34640852, -0.28991875, 0.0516257, 0.89066446)
+bones/17/rotation = Quaternion(-0.15338933, -0.14208117, 0.17706044, 0.96173507)
 bones/20/rotation = Quaternion(-0.12840426, 0.021538727, -0.026730148, 0.9911276)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Stickman/Armature/Skeleton3D" index="1" unique_id=66838994]
@@ -57,7 +56,7 @@ transform = Transform3D(1, 7.807013e-09, -2.0052937e-10, -7.763177e-09, 0.996526
 [node name="Camera3D" type="Camera3D" parent="Stickman/Armature/Skeleton3D/BoneAttachment3D/Face" unique_id=2144724400]
 near = 0.2
 
-[node name="AnimationPlayer" parent="Stickman" index="1" unique_id=379060725]
+[node name="AnimationPlayer" parent="Stickman" index="1" unique_id=784124751]
 autoplay = &"idle"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=755527115]

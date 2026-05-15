@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b0eqakxrocsr5"]
 
 [ext_resource type="Script" uid="uid://c1fi3iv6wt353" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://f2knd3vfbu4o" path="res://scenes/player_1.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://b2xiffdcjn2sl" path="res://scenes/stickman_2.tscn" id="2_0wfyh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0wfyh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -30,5 +30,8 @@ shadow_enabled = true
 use_collision = true
 size = Vector3(27.629883, 1, 32.97046)
 
-[node name="Player1" parent="." unique_id=976749959 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6253724, 0, 1.0222845)
+[node name="Stickman2" parent="." unique_id=1650231088 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23944664, 0.7660409, 1.6923347)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1851224380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.442268, 29.837055)
